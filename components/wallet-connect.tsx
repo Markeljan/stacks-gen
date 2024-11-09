@@ -4,7 +4,6 @@ import { showConnect, useConnect } from "@stacks/connect-react";
 import { X } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-import { useToast } from "@/hooks/use-toast";
 import { useAccount } from "@/lib/use-account";
 import { useClipboard } from "@/lib/use-clipboard";
 import { useUserSession } from "@/lib/use-user-session";
@@ -17,7 +16,6 @@ export const WalletConnect = () => {
   const { isCopied, copyToClipboard } = useClipboard({
     timeout: 2000,
   });
-  const { toast } = useToast();
 
   const handleLogin = () => {
     showConnect(authOptions);
