@@ -1,11 +1,12 @@
 import { useState } from "react";
+
 import { toast } from "sonner";
 
 export interface useCopyToClipboardProps {
   timeout?: number;
 }
 
-export function useClipboard({ timeout = 2000 }: useCopyToClipboardProps) {
+export function useClipboard({ timeout = 1000 }: useCopyToClipboardProps = {}) {
   const [isCopied, setIsCopied] = useState<boolean>(false);
 
   const copyToClipboard = (value: string) => {
@@ -21,7 +22,7 @@ export function useClipboard({ timeout = 2000 }: useCopyToClipboardProps) {
       setIsCopied(true);
       toast.success("Copied to clipboard", {
         icon: "📋",
-        duration: 1000,
+        duration: timeout,
       });
       setTimeout(() => {
         setIsCopied(false);

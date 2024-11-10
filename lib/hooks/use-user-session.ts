@@ -1,10 +1,8 @@
-"use client";
-
 import { useCallback, useEffect, useState } from "react";
 
-import { AppConfig, UserSession } from "@stacks/connect-react";
+import { AppConfig, UserSession } from "@stacks/connect";
 
-import { useIsMounted } from "@/lib/use-is-mounted";
+import { useIsMounted } from "@/lib/hooks/use-is-mounted";
 
 export const useUserSession = () => {
   const [userSession, setUserSessionState] = useState<UserSession | null>(null);

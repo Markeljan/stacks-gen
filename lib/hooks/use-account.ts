@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 
-import { useLocalStorage } from "@/lib/use-local-storage";
-import { useUserSession } from "@/lib/use-user-session";
+import { useLocalStorage } from "@/lib/hooks/use-local-storage";
+import { useUserSession } from "@/lib/hooks/use-user-session";
 
 export const useAccount = () => {
   const { userSession } = useUserSession();

@@ -1,5 +1,3 @@
-"use client";
-
 import { type Dispatch, type SetStateAction, useEffect, useState } from "react";
 
 export function useLocalStorage<T>(
