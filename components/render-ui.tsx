@@ -1,11 +1,13 @@
 "use client";
 
 import * as React from "react";
+
 import { Code, Eye } from "lucide-react";
 import { LiveEditor, LiveError, LivePreview, LiveProvider } from "react-live";
+
+import { ContractFunction } from "@/components/contract-function";
 import * as shadcnComponents from "@/components/ui";
 import { Button } from "@/components/ui/button";
-import { ContractFunction as ContractFunctionComponent } from "@/components/contract-function";
 
 export const RenderUI = ({ componentCode }: { componentCode: string }) => {
   const [showCode, setShowCode] = React.useState(false);
@@ -13,7 +15,7 @@ export const RenderUI = ({ componentCode }: { componentCode: string }) => {
   const scope = {
     ...React,
     shadcn: shadcnComponents,
-    ContractFunction: ContractFunctionComponent,
+    ContractFunction: ContractFunction,
   };
 
   return (

@@ -13,7 +13,6 @@ export const useContract = () => {
     functionName: string;
     args?: { value: string; type: ClarityAbiType }[];
   }) => {
-    console.log("Reading contract:", contractId, functionName, args);
     const data = await readContractFunction({
       contractId,
       functionName,
@@ -33,9 +32,6 @@ export const useContract = () => {
     args?: { value: string; type: ClarityAbiType }[];
   }) => {
     const [contractAddress, contractName] = contractId.split(".");
-    console.log(
-      `Making contract call to ${contractAddress}.${contractName}.${functionName}`
-    );
     await openContractCall({
       contractAddress,
       contractName,

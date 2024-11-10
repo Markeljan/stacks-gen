@@ -8,7 +8,7 @@ export const Landing = () => {
     <>
       <Header />
       <h1 className="text-4xl font-bold">Stacks Contract Visualizer</h1>
-      <ContractForm />
+      <ContractForm showPrompt />
     </>
   );
 };

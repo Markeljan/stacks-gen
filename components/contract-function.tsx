@@ -11,22 +11,25 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { useContract } from "@/lib/hooks/use-contract";
+import { cn } from "@/lib/utils";
 import type { ClarityAbiType } from "@stacks/transactions";
 import { CheckCircle2, XCircle } from "lucide-react";
 import { useState } from "react";
 
 export interface ContractFunctionProps {
   functionName: string;
-  args?: Array<{ name: string; type: ClarityAbiType }>;
   contractId: string;
   access: "read_only" | "public";
+  args?: Array<{ name: string; type: ClarityAbiType }>;
+  className?: string;
 }
 
 export const ContractFunction = ({
   functionName,
-  args = [],
   access,
   contractId,
+  args = [],
+  className,
 }: ContractFunctionProps) => {
   const [result, setResult] = useState<unknown>(null);
   const [error, setError] = useState<string | null>(null);
@@ -75,7 +78,7 @@ export const ContractFunction = ({
   };
 
   return (
-    <Card className="w-full max-w-md mx-auto">
+    <Card className={cn("w-full max-w-md mx-auto", className)}>
       <CardHeader>
         <CardTitle className="text-lg font-semibold">{functionName}</CardTitle>
         <CardDescription className="text-sm text-muted-foreground">
