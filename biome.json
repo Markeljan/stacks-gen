@@ -21,7 +21,11 @@
     "rules": {
       "recommended": true
     },
-    "ignore": ["node_modules", ".next"]
+    "ignore": [
+      "node_modules",
+      ".next",
+      "components/ui"
+    ]
   },
   "javascript": {
     "formatter": {

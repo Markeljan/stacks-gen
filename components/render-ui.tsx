@@ -16,7 +16,11 @@ export const RenderUI = ({ componentCode }: { componentCode: string }) => {
     ...React,
     shadcn: shadcnComponents,
     ContractFunction: ContractFunction,
+    default: undefined,
   };
+  
+  // biome-ignore lint/performance/noDelete: <explanation>
+  delete scope.default;
 
   return (
     <LiveProvider code={componentCode} scope={scope}>

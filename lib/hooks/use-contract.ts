@@ -1,4 +1,3 @@
-import { useAccount } from "@/lib/hooks/use-account";
 import { readContractFunction } from "@/lib/stacks/api";
 import { openContractCall } from "@stacks/connect-react";
 import { parseToCV, type ClarityAbiType } from "@stacks/transactions";

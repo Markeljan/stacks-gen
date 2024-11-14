@@ -1,4 +1,5 @@
-import { openai } from "@ai-sdk/openai";
+import { anthropic } from "@ai-sdk/anthropic";
+// import { openai } from "@ai-sdk/openai";
 import { generateObject } from "ai";
 import { z } from "zod";
 
@@ -12,11 +13,11 @@ export const generateUI = async ({
   prompt?: string;
 }): Promise<string> => {
   const result = await generateObject({
-    model: openai("gpt-4o"),
+    model: anthropic("claude-3-5-sonnet-latest"), //openai("gpt-4o"),
     schema: z.object({
       reactLiveCode: z.string(),
     }),
-    prompt: `Generate a React component using shadcn components and the ContractFunction component to create a UI for the following STACKS smart contract interface.
+    prompt: `Generate a full, working React component using shadcn components and the ContractFunction component to create a UI for the following STACKS smart contract interface.
     ${JSON.stringify({ contractId, functionsInterface })}
     Example structure:
     () => {
@@ -87,9 +88,11 @@ export const generateUI = async ({
       return <ContractUi />;
     }
       
-    IMPORTANT: modify the code based on the user's prompt.  Customize as much as possible to match the user's request and make a unique UI.  If the user's prompt is empty, follow the example structure with some random variation.  Edit the classNames to customize the layout and styling.
+    IMPORTANT: modify the code based on the user's prompt.  Customize as much as possible to match the user's request and make a unique UI.  If the user's prompt is empty, follow the example structure with some random variation.
 
     User's prompt: ${prompt}
+
+    Do not omit or placehold anything.
     `,
   });
 
